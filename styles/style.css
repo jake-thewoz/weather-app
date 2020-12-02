@@ -10,6 +10,14 @@ body {
       grid-template-rows: auto 1fr auto;
 }
 
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
 header {
   background: #f4f4f2;
   font-family: "Comfortaa";
@@ -36,6 +44,28 @@ div#weather-card {
   text-align: center;
 }
 
+@media screen and (max-width: 1000px) {
+  div#weather-card {
+    width: 75%;
+  }
+}
+
+input {
+  font-size: 1.2em;
+  border: none;
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+button {
+  font-size: 1.2em;
+  color: #f4f4f2;
+  background-color: #39404D;
+  border: none;
+  padding: .5em;
+}
+
 div#current-weather-holder {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -46,11 +76,11 @@ div#current-weather-holder {
 }
 
 img#current-weather-icon {
-  height: 70px;
+  height: 3em;
 }
 
 span#current-temp {
-  font-size: 60px;
+  font-size: 3em;
 }
 
 span#temp-gauge {
@@ -64,6 +94,16 @@ span#temp-gauge a {
 
 span#temp-gauge a:hover {
   cursor: pointer;
+}
+
+div#current-high-low-holder {
+  margin-top: 1.5em;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+span#current-high-low {
+  font-size: 2em;
 }
 
 footer {

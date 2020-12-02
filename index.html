@@ -12,12 +12,14 @@
             <header class="section">
                 <h1>Weather App</h1>
             </header>
-    
+
             <main class="section">
                 <div id="weather-card">
-                    <input type="text" placeholder="Search..." name="search" id="search-box">
-                    <button type="submit" id="submit-button">Submit</button>
-                    <button type="submit" id="save-button">Save City as Default</button>
+                    <div id="search-area">
+                        <input type="text" placeholder="Search..." name="search" id="search-box">
+                        <button type="submit" class="button" id="submit-button">Submit</button>
+                        <button type="submit" class="button" id="save-button">Save City as Default</button>
+                    </div>
                     <div id="current-weather">
                         <h2 id="current-title">Current Weather</h2>
                         <div id="current-weather-holder">
@@ -25,13 +27,19 @@
                             <span class="temp" id="current-temp"></span>
                             <span id="temp-gauge">F° | <a>C°</a></span>
                         </div>
+                        <div id="current-high-low-holder">
+                            <span class="temp" id="current-high-low"></span>
+                        </div>
                     </div>
                     <div id ="five-day-weather">
                         <h2>Five Day Forecast</h2>
+                        <div id="five-day-holder">
+
+                        </div>
                     </div>
                 </div>
             </main>
-    
+
             <footer class="section">
                 <p>Site by Jakob Curatola-Wozniak</p>
             </footer>

@@ -6,16 +6,21 @@ $title-font: 'Comfortaa';
 $body-font: 'Quicksand';
 
 // Color Variables
-$bg-white: #f4f4f2;
+$white: #f4f4f2;
 $light-blue: #bedcfa;
-$bg-medium: #e8e8e8;
-$bg-dark: #bbbfca;
-$text-color: #39404D;
+$medium: #e8e8e8;
+$dark: #bbbfca;
+$black: #39404D;
+
+// Display Size Variables
+$breakpoints: (phone: 640px, 
+               tablet: 768px, 
+               desktop: 1024px) !default;
 
 
 body {
-    background-color: $bg-medium;
-    color: $text-color;
+    background-color: $medium;
+    color: $black;
     font-family: $body-font;
     margin: 0;
     display: grid;
@@ -23,8 +28,16 @@ body {
     grid-template-rows: auto 1fr auto;
 }
 
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
 header {
-    background: $bg-white;
+    background: $white;
     font-family: $title-font;
     text-align: center;
     padding: 2rem 0;
@@ -33,7 +46,7 @@ header {
 main {
     display: grid;
     place-items: center;
-    background: $bg-medium;
+    background: $medium;
 }
 
 div#weather-card {
@@ -45,6 +58,26 @@ div#weather-card {
     background: $light-blue;
     width: 50%;
     text-align: center;
+    @media screen and (max-width: 1000px) {
+        width: 75%;
+    }
+}
+
+
+input {
+    font-size: 1.2em;
+    border: none;
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom:0.5em;
+}
+
+button {
+    font-size: 1.2em;
+    color: $white;
+    background-color: $black;
+    border: none;
+    padding: .5em;
 }
 
 div#current-weather-holder {
@@ -53,11 +86,13 @@ div#current-weather-holder {
 }
 
 img#current-weather-icon {
-    height: 70px;
+    //height: 70px;
+    height: 3em;
 }
 
 span#current-temp {
-    font-size: 60px;
+   // font-size: 60px;
+    font-size: 3em;
 }
 
 span#temp-gauge {
@@ -72,15 +107,23 @@ span#temp-gauge {
     }
 }
 
+div#current-high-low-holder {
+    margin-top: 1.5em;
+    align-content: center;
+}
+
+span#current-high-low {
+    font-size: 2em;
+}
+
 footer {
     width:100%;
     position: fixed;
     display: grid;
     bottom: 0;
-    background:$text-color;
-    color: $bg-white;
+    background:$black;
+    color: $white;
     padding: 2rem;
     text-align: center;
     padding: 2rem 0;
 }
-

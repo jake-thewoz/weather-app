@@ -9,6 +9,7 @@ let units = "imperial";
 
 // Here we're declaring the HTML objects that will be assigned values at init time
 let currentTitle, currentTemp, currentIcon, tempGauge, tempChanger;
+let currentHighLow;
 
 // Bad form, but it's a free api.
 let apiKey = "c107720496abaa4ee5aefeafc5a80d66";
@@ -43,6 +44,8 @@ const initApp = function () {
     currentIcon = document.querySelector("#current-weather-icon");
     tempGauge = document.querySelector("#temp-gauge");
 
+    currentHighLow = document.querySelector("#current-high-low");
+
     // Now we add the listener to the search button
     submitButton.addEventListener("click", () => {
         updateWeather(searchBox.value);
@@ -50,6 +53,13 @@ const initApp = function () {
 
     saveButton.addEventListener("click", () => {
         saveCity();
+    });
+
+    searchBox.addEventListener("keyup", (event) => {
+        if (event.keyCode === 13){
+            event.preventDefault();
+            submitButton.click();
+        }
     });
 
     tempGauge.addEventListener("click", (event) => {
@@ -78,6 +88,7 @@ const updateWeather = async (searchValue) => {
     // Here we update the HTML to reflect the weather
     currentTitle.textContent="Current Weather in " + weatherData.name;
     currentTemp.textContent=weatherData.main.temp;
+    currentHighLow.textContent=weatherData.main.temp_max + "° | " + weatherData.main.temp_min + "°";
     const iconString = "https://openweathermap.org/img/wn/" + weatherData.weather[0].icon + ".png";
     currentIcon.src=iconString;
     tempGaugeCheck();
