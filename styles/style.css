@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Quicksand&display=swap");
 body {
   background-color: #e8e8e8;
-  color: #495464;
+  color: #39404D;
   font-family: "Quicksand";
   margin: 0;
   display: -ms-grid;
@@ -24,16 +24,46 @@ main {
   background: #e8e8e8;
 }
 
-div #weather-card {
+div#weather-card {
   margin: 1rem auto;
   padding: 1em;
   border-radius: 10px;
   display: -ms-grid;
   display: grid;
   place-items: center;
-  background: #f4f4f2;
+  background: #bedcfa;
   width: 50%;
-  color: blue;
+  text-align: center;
+}
+
+div#current-weather-holder {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+img#current-weather-icon {
+  height: 70px;
+}
+
+span#current-temp {
+  font-size: 60px;
+}
+
+span#temp-gauge {
+  margin-bottom: 30px;
+}
+
+span#temp-gauge a {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+span#temp-gauge a:hover {
+  cursor: pointer;
 }
 
 footer {
@@ -42,7 +72,7 @@ footer {
   display: -ms-grid;
   display: grid;
   bottom: 0;
-  background: #bbbfca;
+  background: #39404D;
   color: #f4f4f2;
   padding: 2rem;
   text-align: center;

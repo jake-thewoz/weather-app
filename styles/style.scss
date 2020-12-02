@@ -6,10 +6,11 @@ $title-font: 'Comfortaa';
 $body-font: 'Quicksand';
 
 // Color Variables
-$bg-light: #f4f4f2;
+$bg-white: #f4f4f2;
+$light-blue: #bedcfa;
 $bg-medium: #e8e8e8;
 $bg-dark: #bbbfca;
-$text-color: #495464;
+$text-color: #39404D;
 
 
 body {
@@ -23,7 +24,7 @@ body {
 }
 
 header {
-    background: $bg-light;
+    background: $bg-white;
     font-family: $title-font;
     text-align: center;
     padding: 2rem 0;
@@ -35,16 +36,40 @@ main {
     background: $bg-medium;
 }
 
-div #weather-card {
+div#weather-card {
     margin: 1rem auto;
     padding: 1em;
     border-radius: 10px;
     display: grid;
     place-items: center;
-    background: $bg-light;
+    background: $light-blue;
     width: 50%;
-    color: blue;
+    text-align: center;
+}
 
+div#current-weather-holder {
+    display: inline-flex;
+    align-items: center;
+}
+
+img#current-weather-icon {
+    height: 70px;
+}
+
+span#current-temp {
+    font-size: 60px;
+}
+
+span#temp-gauge {
+    margin-bottom:30px;
+
+    a {
+        text-decoration: underline;
+        font-weight: bold;
+    }
+    a:hover {
+        cursor: pointer;
+    }
 }
 
 footer {
@@ -52,8 +77,8 @@ footer {
     position: fixed;
     display: grid;
     bottom: 0;
-    background:$bg-dark;
-    color: $bg-light;
+    background:$text-color;
+    color: $bg-white;
     padding: 2rem;
     text-align: center;
     padding: 2rem 0;
