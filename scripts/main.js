@@ -1,7 +1,3 @@
-
-// Here's the variable we'll used for the persistent default, if it exists.
-// By default, we'll use Washington, DC. The currentCity variable should always
-// contain the name of the currently displayed city.
 let currentCity = "Washington,dc,us";
 
 // Here we'll declare the units of measurement for temperature
@@ -9,7 +5,7 @@ let units = "imperial";
 
 // Here we're declaring the HTML objects that will be assigned values at init time
 let currentTitle, currentTemp, currentIcon, tempGauge, tempChanger;
-let currentHighLow;
+let currentHighLow, fiveDayArray;
 
 // Bad form, but it's a free api.
 let apiKey = "c107720496abaa4ee5aefeafc5a80d66";
@@ -43,8 +39,9 @@ const initApp = function () {
     currentTemp = document.querySelector("#current-temp");
     currentIcon = document.querySelector("#current-weather-icon");
     tempGauge = document.querySelector("#temp-gauge");
-
     currentHighLow = document.querySelector("#current-high-low");
+
+    fiveDayArray = document.querySelectorAll(".fiveDay");
 
     // Now we add the listener to the search button
     submitButton.addEventListener("click", () => {
@@ -59,6 +56,7 @@ const initApp = function () {
         if (event.keyCode === 13){
             event.preventDefault();
             submitButton.click();
+            searchBox.value='';
         }
     });
 
@@ -76,25 +74,45 @@ const initApp = function () {
     updateWeather(currentCity);
 }
 
-// Here's our function that runs on page load,
-// and also when the user hits the search button
+// This function handles updating the HTML to reflect the weather,
+// and also calls a function to get the weather.
 const updateWeather = async (searchValue) => {
     console.log('updating the weather...');
 
     const weatherData = await getWeatherData(searchValue);
+    const fiveDayData = await getFiveDay(searchValue);
 
     console.log(weatherData);
+    console.log(fiveDayData);
 
     // Here we update the HTML to reflect the weather
     currentTitle.textContent="Current Weather in " + weatherData.name;
     currentTemp.textContent=weatherData.main.temp;
-    currentHighLow.textContent=weatherData.main.temp_max + "° | " + weatherData.main.temp_min + "°";
+    currentHighLow.textContent="" + weatherData.main.temp_max + "° | " + weatherData.main.temp_min + "°";
     const iconString = "https://openweathermap.org/img/wn/" + weatherData.weather[0].icon + ".png";
     currentIcon.src=iconString;
     tempGaugeCheck();
+
+    // Now we'll update the five day forecast, using our array
+    // We'll use 'j' for the weather data, since it's a forecast that advances 3 hours
+    let j = 7;
+    for (let i = 0; i < 5; i++) {
+        const iconString = "https://openweathermap.org/img/wn/" + fiveDayData.list[j].weather[0].icon + ".png";
+        fiveDayArray[i].querySelector("img").src=iconString;
+
+        // This next part took quite a bit of research
+        const day = new Date(fiveDayData.list[j].dt_txt);
+        fiveDayArray[i].querySelector(".fiveDayDay").innerHTML=(new Intl.DateTimeFormat('en-US', {weekday: 'short'}).format(day));
+
+        // Now it's time for the highs and lows
+        fiveDayArray[i].querySelector(".fiveDay-temp").textContent="  " + fiveDayData.list[j].main.temp_max + "° | " + fiveDayData.list[j].main.temp_min + "°  ";
+
+        // Now we increment j so that it goes to the next day
+        j+=8;
+    }
 };
 
-// Here we'll call the weather API and return the json
+// Function that gets the weather data from the api
 const getWeatherData = async (cityName) => {
     console.log('getting weather data for ' + cityName + '...');
 
@@ -112,9 +130,26 @@ const getWeatherData = async (cityName) => {
     // Now we update our currentCity
     currentCity = cityName;
     return jsonData;
-}
+};
 
-// This function is used to change the farenheit and celsius link
+// Function that gets the five day forecast from the api
+const getFiveDay = async (cityName) => {
+    console.log('getting forecast data for ' + cityName + '...');
+
+    let apiString;
+
+    if (cityName !== null)
+        apiString = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=" + units + "&appid=" + apiKey;
+    else
+        apiString = "https://api.openweathermap.org/data/2.5/forecast?q=" + currentCity + "&units=" + units + "&appid=" + apiKey;
+
+    const response = await fetch(apiString);
+    const jsonData = await response.json();
+    console.log("forecast for " + cityName + " received.");
+    return jsonData
+};
+
+// This function is used to change the farenheit and celsius HTML
 const tempGaugeCheck = function () {
     if (units === "imperial")
         tempGauge.innerHTML="F° | <a>C°</a>";

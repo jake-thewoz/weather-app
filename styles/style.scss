@@ -12,11 +12,9 @@ $medium: #e8e8e8;
 $dark: #bbbfca;
 $black: #39404D;
 
-// Display Size Variables
-$breakpoints: (phone: 640px, 
-               tablet: 768px, 
-               desktop: 1024px) !default;
-
+html, body {
+    height: 100%;
+}
 
 body {
     background-color: $medium;
@@ -24,16 +22,19 @@ body {
     font-family: $body-font;
     margin: 0;
     display: grid;
-    //height: 100vh;
     grid-template-rows: auto 1fr auto;
 }
 
 h1 {
     font-size: 3rem;
+    font-family: $title-font;
+    padding: 1rem;
 }
 
 h2 {
     font-size: 2rem;
+    font-family: $title-font;
+    padding: .6rem;
 }
 
 header {
@@ -50,8 +51,8 @@ main {
 }
 
 div#weather-card {
-    margin: 1rem auto;
-    padding: 1em;
+    margin: 4rem auto ;
+    padding: 3em 1em;
     border-radius: 10px;
     display: grid;
     place-items: center;
@@ -63,6 +64,9 @@ div#weather-card {
     }
 }
 
+.weather-section {
+    margin: 1em auto;
+}
 
 input {
     font-size: 1.2em;
@@ -70,12 +74,14 @@ input {
     width: 100%;
     padding: 0.5em;
     margin-bottom:0.5em;
+    font-family: $body-font;
 }
 
 button {
     font-size: 1.2em;
     color: $white;
     background-color: $black;
+    font-family: $body-font;
     border: none;
     padding: .5em;
 }
@@ -87,7 +93,7 @@ div#current-weather-holder {
 
 img#current-weather-icon {
     //height: 70px;
-    height: 3em;
+    height: 4em;
 }
 
 span#current-temp {
@@ -116,9 +122,25 @@ span#current-high-low {
     font-size: 2em;
 }
 
+div#five-day-weather {
+    width:80%;
+}
+
+div#five-day-holder {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+div#five-day {
+    flex: 0 1 150px; /*  No stretching: */
+    margin: 2rem;
+    padding: 2rem;
+}
+
 footer {
     width:100%;
-    position: fixed;
     display: grid;
     bottom: 0;
     background:$black;

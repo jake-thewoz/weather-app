@@ -15,12 +15,13 @@
 
             <main class="section">
                 <div id="weather-card">
-                    <div id="search-area">
+                    <div class="weather-section" id="search-area">
+                        <h2>Search for a City</h2>
                         <input type="text" placeholder="Search..." name="search" id="search-box">
                         <button type="submit" class="button" id="submit-button">Submit</button>
                         <button type="submit" class="button" id="save-button">Save City as Default</button>
                     </div>
-                    <div id="current-weather">
+                    <div class="weather-section" id="current-weather">
                         <h2 id="current-title">Current Weather</h2>
                         <div id="current-weather-holder">
                             <img class="weather-icon" id="current-weather-icon">
@@ -31,10 +32,34 @@
                             <span class="temp" id="current-high-low"></span>
                         </div>
                     </div>
-                    <div id ="five-day-weather">
+                    <div class="weather-section" id="five-day-weather">
                         <h2>Five Day Forecast</h2>
                         <div id="five-day-holder">
-
+                            <div class="fiveDay">
+                                <img class="fiveDay-img"><br>
+                                <span class="fiveDayDay"></span><br>
+                                <span class="fiveDay-temp"></span>
+                            </div>
+                            <div class="fiveDay">
+                                <img class="fiveDay-img"><br>
+                                <span class="fiveDayDay"></span><br>
+                                <span class="fiveDay-temp"></span>
+                            </div>
+                            <div class="fiveDay">
+                                <img class="fiveDay-img"><br>
+                                <span class="fiveDayDay"></span><br>
+                                <span class="fiveDay-temp"></span>
+                            </div>
+                            <div class="fiveDay">
+                                <img class="fiveDay-img"><br>
+                                <span class="fiveDayDay"></span><br>
+                                <span class="fiveDay-temp"></span>
+                            </div>
+                            <div class="fiveDay">
+                                <img class="fiveDay-img"><br>
+                                <span class="fiveDayDay"></span><br>
+                                <span class="fiveDay-temp"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
