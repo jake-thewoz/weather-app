@@ -5,6 +5,7 @@
         <title>Weather App</title>
         <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
         <link href="styles/style.css" rel="stylesheet" type="text/css">
+        <script src="scripts/main.js"></script>
     </head>
     <body>
         <div class="parent">
@@ -14,8 +15,14 @@
     
             <main class="section">
                 <div id="weather-card">
-                    <h2>Current Weather</h2>
-                    <h2>Five Day Forecast</h2>
+                    <input type="text" placeholder="Search..." name="search" id="search-box">
+                    <button type="submit" id="submit-button">Submit</button>
+                    <div id="current-weather">
+                        <h2>Current Weather</h2>
+                    </div>
+                    <div id ="five-day-weather">
+                        <h2>Five Day Forecast</h2>
+                    </div>
                 </div>
             </main>
     
