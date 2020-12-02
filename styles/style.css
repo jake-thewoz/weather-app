@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Quicksand&display=swap");
+body {
+  background-color: #e8e8e8;
+  color: #495464;
+  font-family: "Quicksand";
+  margin: 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr auto;
+      grid-template-rows: auto 1fr auto;
+}
+
+header {
+  background: #f4f4f2;
+  font-family: "Comfortaa";
+  text-align: center;
+  padding: 2rem 0;
+}
+
+main {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background: #e8e8e8;
+}
+
+div #weather-card {
+  margin: 1rem auto;
+  padding: 1em;
+  border-radius: 10px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background: #f4f4f2;
+  width: 50%;
+  color: blue;
+}
+
+footer {
+  width: 100%;
+  position: fixed;
+  display: -ms-grid;
+  display: grid;
+  bottom: 0;
+  background: #bbbfca;
+  color: #f4f4f2;
+  padding: 2rem;
+  text-align: center;
+  padding: 2rem 0;
+}
+/*# sourceMappingURL=style.css.map */

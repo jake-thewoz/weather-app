@@ -1,0 +1,61 @@
+// Importing our custom fonts from Google:
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Quicksand&display=swap');
+
+// Font Variables
+$title-font: 'Comfortaa';
+$body-font: 'Quicksand';
+
+// Color Variables
+$bg-light: #f4f4f2;
+$bg-medium: #e8e8e8;
+$bg-dark: #bbbfca;
+$text-color: #495464;
+
+
+body {
+    background-color: $bg-medium;
+    color: $text-color;
+    font-family: $body-font;
+    margin: 0;
+    display: grid;
+    //height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
+header {
+    background: $bg-light;
+    font-family: $title-font;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+main {
+    display: grid;
+    place-items: center;
+    background: $bg-medium;
+}
+
+div #weather-card {
+    margin: 1rem auto;
+    padding: 1em;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: $bg-light;
+    width: 50%;
+    color: blue;
+
+}
+
+footer {
+    width:100%;
+    position: fixed;
+    display: grid;
+    bottom: 0;
+    background:$bg-dark;
+    color: $bg-light;
+    padding: 2rem;
+    text-align: center;
+    padding: 2rem 0;
+}
+
