@@ -91,6 +91,7 @@ const updateWeather = async (searchValue) => {
     currentHighLow.textContent="" + weatherData.main.temp_max + "° | " + weatherData.main.temp_min + "°";
     const iconString = "https://openweathermap.org/img/wn/" + weatherData.weather[0].icon + ".png";
     currentIcon.src=iconString;
+    currentIcon.alt=weatherData.weather[0].description + " icon";
     tempGaugeCheck();
 
     // Now we'll update the five day forecast, using our array
@@ -99,6 +100,7 @@ const updateWeather = async (searchValue) => {
     for (let i = 0; i < 5; i++) {
         const iconString = "https://openweathermap.org/img/wn/" + fiveDayData.list[j].weather[0].icon + ".png";
         fiveDayArray[i].querySelector("img").src=iconString;
+        fiveDayArray[i].querySelector("img").alt=fiveDayData.list[j].weather[0].description + " icon";
 
         // This next part took quite a bit of research
         const day = new Date(fiveDayData.list[j].dt_txt);

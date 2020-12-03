@@ -83,7 +83,7 @@ button {
     background-color: $black;
     font-family: $body-font;
     border: none;
-    padding: .5em;
+    padding: 1em;
 }
 
 div#current-weather-holder {
@@ -93,7 +93,8 @@ div#current-weather-holder {
 
 img#current-weather-icon {
     //height: 70px;
-    height: 4em;
+    height: 64;
+    width: 64;
 }
 
 span#current-temp {

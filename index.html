@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="Description" content="This web app uses data from the Open Weather API to provide weather and forecasts.">
         <title>Weather App</title>
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+        <link rel="preconnect" href="https://openweathermap.org">
         <link href="styles/style.css" rel="stylesheet" type="text/css">
-        <script src="scripts/main.js"></script>
+        <script defer src="scripts/main.js"></script>
     </head>
     <body>
         <div class="parent">
@@ -16,7 +18,7 @@
             <main class="section">
                 <div id="weather-card">
                     <div class="weather-section" id="search-area">
-                        <h2>Search for a City</h2>
+                        <h2><label for="search-box">Search for a City</label></h2>
                         <input type="text" placeholder="Search..." name="search" id="search-box">
                         <button type="submit" class="button" id="submit-button">Submit</button>
                         <button type="submit" class="button" id="save-button">Save City as Default</button>
@@ -24,7 +26,7 @@
                     <div class="weather-section" id="current-weather">
                         <h2 id="current-title">Current Weather</h2>
                         <div id="current-weather-holder">
-                            <img class="weather-icon" id="current-weather-icon">
+                            <img class="weather-icon" id="current-weather-icon" alt="weather icon">
                             <span class="temp" id="current-temp"></span>
                             <span id="temp-gauge">F° | <a>C°</a></span>
                         </div>
@@ -36,27 +38,27 @@
                         <h2>Five Day Forecast</h2>
                         <div id="five-day-holder">
                             <div class="fiveDay">
-                                <img class="fiveDay-img"><br>
+                                <img class="fiveDay-img" alt="weather icon"><br>
                                 <span class="fiveDayDay"></span><br>
                                 <span class="fiveDay-temp"></span>
                             </div>
                             <div class="fiveDay">
-                                <img class="fiveDay-img"><br>
+                                <img class="fiveDay-img" alt="weather icon"><br>
                                 <span class="fiveDayDay"></span><br>
                                 <span class="fiveDay-temp"></span>
                             </div>
                             <div class="fiveDay">
-                                <img class="fiveDay-img"><br>
+                                <img class="fiveDay-img" alt="weather icon"><br>
                                 <span class="fiveDayDay"></span><br>
                                 <span class="fiveDay-temp"></span>
                             </div>
                             <div class="fiveDay">
-                                <img class="fiveDay-img"><br>
+                                <img class="fiveDay-img" alt="weather icon"><br>
                                 <span class="fiveDayDay"></span><br>
                                 <span class="fiveDay-temp"></span>
                             </div>
                             <div class="fiveDay">
-                                <img class="fiveDay-img"><br>
+                                <img class="fiveDay-img" alt="weather icon"><br>
                                 <span class="fiveDayDay"></span><br>
                                 <span class="fiveDay-temp"></span>
                             </div>

@@ -77,7 +77,7 @@ button {
   background-color: #39404D;
   font-family: "Quicksand";
   border: none;
-  padding: .5em;
+  padding: 1em;
 }
 
 div#current-weather-holder {
@@ -90,7 +90,8 @@ div#current-weather-holder {
 }
 
 img#current-weather-icon {
-  height: 4em;
+  height: 64;
+  width: 64;
 }
 
 span#current-temp {
